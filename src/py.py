@@ -1,13 +1,17 @@
-import xlrd
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-## Basic xls reader
+import reader
 
-workbook = xlrd.open_workbook('../raw/street.xls', on_demand = True)
-name =  workbook.sheet_names()[0]
-sheet = workbook.sheet_by_name(name)
+streets = reader.read('../raw/street.xls')
+areas = reader.read('../raw/area.xls')
+diagnosis = reader.read('../raw/id_exitus.xls')
+privs = reader.read('../raw/id_prvs.xls')
+main = reader.readmain('../raw/main.xls')
 
-print sheet.nrows
-print sheet.cell(1, 2).value
+for i in range(1, 5):
+    obj = main[i]
+    # print obj['birthday'], obj['street'], obj['area']
+    print obj['id'], areas.get(obj['area']), obj['birthday']
 
-for i in range(1, sheet.nrows):
-    print sheet.cell(i, 2).value, sheet.cell(i, 1).value, sheet.cell(i, 2).value
+# print area_map.get(u'ФР')

@@ -1,3 +1,5 @@
 *.swo
 *.swp
 .~*.xls#
+**/**/*.pyc
+.DS_Store
