@@ -15,17 +15,10 @@ id_exitus = reader.read('../raw/id_exitus.xls')
 id_prvs = reader.read('../raw/id_prvs.xls')
 main = reader.readmain('../raw/main.xls')
 
+OUT_FILE = 'bump.csv'
+f = open(OUT_FILE, 'w')
 
-
-def deleteContent(fName):
-    with open(fName, "w"):
-        pass
-
-deleteContent('bump')
-
-f = open('bump', 'w')
-
-for i in range(1, 3):
+for i in range(1, len(main)):
     obj = main[i]
     s = "{0}; {1}; {3}; {4}; {5}; {6}; {7}; \n".format(
         obj['id'],
@@ -36,7 +29,4 @@ for i in range(1, 3):
         obj['diagnosis'],
         obj['dateout'],
         id_prvs.get(str(int(obj['id_prvs']))))
-
     f.write(s)
-
-os.system( 'tail bump')
