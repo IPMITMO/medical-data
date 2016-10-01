@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import xlrd
 import datetime
 import mapper
@@ -40,11 +43,11 @@ def readmain(filename):
             "street": sheet.cell(i, 3).value,
             "streetype": sheet.cell(i, 4).value,
             "area": sheet.cell(i, 5).value,
-            "dateout": sheet.cell(i, 5).value,
-            "diagnosis": sheet.cell(i, 6).value,
+            "dateout": xldate_to_datetime(sheet.cell(i, 6).value),
+            "diagnosis": sheet.cell(i, 7).value,
             "diag_pref": sheet.cell(i, 7).value,
-            "id_prvs": sheet.cell(i, 8).value,
-            "id_exitus": sheet.cell(i, 9).value,
+            "id_prvs": sheet.cell(i, 9).value,
+            "id_exitus": sheet.cell(i, 10).value,
             "qresult": sheet.cell(i, 10).value,
         }
         arr.append(obj)
