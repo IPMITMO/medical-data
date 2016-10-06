@@ -1,1 +1,1 @@
-# medicalr
+# System of Medical Data Visualization
