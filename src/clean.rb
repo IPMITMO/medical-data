@@ -25,8 +25,9 @@ mkb_raw = File.open('raw/mkb.csv').readlines
 mkb_raw.each{ |item| mkb[item.split(";")[0]] = item.split(";")[1] }
 
 main_raw = File.open('raw/main.csv').readlines
-main_raw = main_raw[1..20].map{|item| item.split(";")}
+# main_raw = main_raw[1..20].map{|item| item.split(";")}
+main_raw = main_raw.map{|item| item.split(";")}
+
 main = main_raw.each do |item|
-  printf "%-20s %-2s\t%-20s\t%-50s\t%-20s\n", item[1], item[2], street[item[3]], mkb[item[7]], id_prvs[item[9]], id_exitus[item[10]]
-  # puts "#{item[1]}\t#{item[2]}\t#{street[item[3]]}   \t\t#{item[7]} \t#{id_prvs[item[9]]}   \t#{id_exitus[item[10]]} "
+  printf "%-20s %-2s\t%-20s\t%-80s\t%-20s\n", item[1], item[2], street[item[3]], mkb[item[7]], id_prvs[item[10]], id_exitus[item[10]]
 end
