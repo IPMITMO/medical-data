@@ -1,0 +1,22 @@
+{
+  "name": "medical-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IPMITMO/medical-data.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IPMITMO/medical-data/issues"
+  },
+  "homepage": "https://github.com/IPMITMO/medical-data#readme",
+  "dependencies": {
+    "leaflet": "^1.0.2"
+  }
+}
