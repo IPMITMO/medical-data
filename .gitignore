@@ -3,3 +3,4 @@
 .~*.xls#
 **/**/*.pyc
 .DS_Store
+.idea/
