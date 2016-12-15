@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python src/process.py
+ruby src/clean.rb
