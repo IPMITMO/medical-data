@@ -29,7 +29,21 @@ class MedDataApi < Sinatra::Base
   end
 
   get '/data' do
-    db.exec('SELECT * FROM data').to_a.to_json
+    db.exec('
+      select count(m.*), m.area_lat, m.area_lon, m.area_name, array_agg(DISTINCT prvs) as prvs
+      from meddata m
+      where
+        area_lat != 0
+      group by area_name, area_lat, area_lon, area_name;'
+    ).to_a.map do |e|
+      {
+          count: e['count'].to_f,
+          lat: e['area_lat'].to_f,
+          lon: e['area_lon'].to_f,
+          area_name: e['area_name'],
+          prvs: e['prvs']
+      }
+    end.to_json
   end
 
   get '/ping' do
