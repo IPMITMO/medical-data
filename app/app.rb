@@ -18,14 +18,14 @@ require 'json'
 }
 
 class MedDataApi < Sinatra::Base
-  set :public_folder, File.dirname(__FILE__)
-
+  # set :public_folder, File.dirname(__FILE__ + '/public')
+  set :public_folder, Proc.new { File.join(File.dirname(__FILE__), 'public') }
   def db
     PGconn.connect('localhost', 5432, nil, nil, 'meddata', 'meddata', 'meddata')
   end
 
   get '/' do
-    File.read(File.join('./', 'index.html'))
+    File.read(File.join('./public/', 'index.html'))
   end
 
   get '/data' do
@@ -48,6 +48,14 @@ class MedDataApi < Sinatra::Base
 
   get '/ping' do
     'PONG ' + params.to_json
+  end
+
+  not_found do
+    'Not found'
+  end
+
+  error do
+    "Error is: " + params['captures'].first.inspect
   end
 
 end
