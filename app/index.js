@@ -9,6 +9,4 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
   id: 'mapbox.streets'
 }).addTo(map);
 
-
-
 L.circle([59.93,30.30], 1000).addTo(map);

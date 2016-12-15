@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+gem 'pg'
+gem 'sinatra'
+gem 'shotgun'
+gem 'rack'
+gem 'rake'
+gem 'json'
