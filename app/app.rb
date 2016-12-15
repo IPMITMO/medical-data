@@ -4,6 +4,9 @@ require 'sinatra/base'
 require 'pg'
 require 'json'
 
+# @TODO Split sinatra app on multiple files
+# http://stackoverflow.com/questions/5015471/using-sinatra-for-larger-projects-via-multiple-files
+
 @dbconfig = {
     host: 'localhost',
     port: 5432,
@@ -27,7 +30,10 @@ class MedDataApi < Sinatra::Base
 
   get '/data' do
     db.exec('SELECT * FROM data').to_a.to_json
-    # 'test'
+  end
+
+  get '/ping' do
+    'PONG ' + params.to_json
   end
 
 end

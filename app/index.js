@@ -10,3 +10,16 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 }).addTo(map);
 
 L.circle([59.93,30.30], 1000).addTo(map);
+
+
+CallApi('GET', 'ping?test=123', function(resp){
+  console.log(resp.responseText)
+}, function(resp){
+  console.log(resp.code)
+});
+
+CallApi('GET', 'data', function(resp){
+  console.log(resp.responseText)
+}, function(resp){
+  console.log(resp.code)
+});
