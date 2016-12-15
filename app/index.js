@@ -29,7 +29,7 @@ CallApi('GET', 'data', function(resp){
     circle.addTo(map);
 
     L.marker([item.lat, item.lon], {title: item.area_name, alt: item.area_name})
-    .bindTooltip("<p style='font-size:7px; margin-top: 0; margin-bottom: 0;'>" + item.area_name +"<br/>Кол-во: " + item.count + "<br>" + item.prvs +  "</p>", {
+    .bindTooltip("<p style='font-size:9px; margin-top: 0; margin-bottom: 0;'>" + item.area_name +"<br/>Кол-во: " + item.count + "<br>" + item.prvs +  "</p>", {
       permanent: true,
       direction: 'right'
     }).addTo(map);
